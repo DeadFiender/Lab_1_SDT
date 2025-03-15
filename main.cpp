@@ -1,15 +1,21 @@
 #include <QCoreApplication>
 #include <QFileInfo>
 #include <iostream>
+#include "filemanager.h"
 
 using namespace std;
 
-int main(int argc, char *argv[])
+int main(int argc, char *argv[]){
+
+
+}
+
+/*
 {
     class FileManager
     {
     public:
-        bool Add(/*параметры*/);
+        bool Add(параметры);
         bool Del();
         bool update();
 
@@ -40,3 +46,4 @@ int main(int argc, char *argv[])
     }
     return 0;//a.exec();
 }
+*/
