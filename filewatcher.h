@@ -10,7 +10,7 @@ class FileWatcher : public QObject {
 public:
     explicit FileWatcher(const QString& filePath, QObject* perent = nullptr);
 
-    void checkfile();
+    void checkFile();
 
 signals:
     void fileCreated(const QString& filePath, qint64 size);
