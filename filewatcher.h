@@ -3,32 +3,24 @@
 
 #include <QObject>
 #include <QFileInfo>
-#include <QTimer>
 
 class FileWatcher : public QObject {
     Q_OBJECT
 
 public:
-    FileWatcher();
+    explicit FileWatcher(const QString& filePath, QObject* perent = nullptr);
 
-    QString filepath() const;
-    void startWatching();
+    void checkfile();
 
 signals:
-    void fileCreated(const QString& path, qint64 size);
-    void fileModified(const QString& path, qint64 size);
-    void fileDeleted(const QString& path);
-
-private slots:
-    void checkFile();
+    void fileCreated(const QString& filePath, qint64 size);
+    void fileModified(const QString& filePath, qint64 size);
+    void fileDeleted(const QString& filePath);
 
 private:
-    QString filepath_;
-    bool lastExists;
-    qint64 lastsize_;
-    QTimer timer_;
-
-
+    QString filePath_;// Путь к файлу
+    bool lastExists_;// Был ли файл в предыдущую проверку
+    qint64 lastSize_;// Размер файла при последней проверке
 };
 
 #endif // FILEWATCHER_H

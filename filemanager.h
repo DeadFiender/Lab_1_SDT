@@ -2,27 +2,31 @@
 #define FILEMANAGER_H
 
 #include <QObject>
-#include <QMap>
+#include <QTimer>
+#include "ILogger.h"
 #include "filewatcher.h"
 
 class FileManager : public QObject {
     Q_OBJECT
 
 public:
-    FileManager();
+    static FileManager& instance();
 
-    void addFile(const QString& path);
-    void removeFile(const QString& path);
-    void startMonitoring();
+    void setLogger(ILogger* logger);// Установка логгера
+    void addFile(const QString& filepath);// Добавление файла для мониторинга
+    void startMonitoring();// Запуск мониторинга
 
 private slots:
-    void onFileCreated(const QString& path, qint64 size);
-    void onFileModified(const QString& path, qint64 size);
-    void onFileDeleted(const QString& path);
+    void onFileCreated(const QString& filePath, qint64 size);//
+    void onFileModified(const QString& filePath, qint64 size);//
+    void onFileDeleted(const QString& filePath);//
+    void checkFiles();// Проверка всех файлов
 
 private:
-
-
+    explicit FileManager(QObject* parent = nullptr);
+    ILogger* logger_;// Указатель на логгер
+    QTimer timer_;// Таймер для периодической проверки
+    QList<FileWatcher*> watchers_;// Список наблюдателей за файлами
 };
 
 #endif // FILEMANAGER_H

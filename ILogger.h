@@ -5,7 +5,7 @@
 
 class ILogger {
 public:
-    virtual ~ILogger() = default;
+    virtual ~ILogger() = default;// Виртуальный деструктор (обеспечивает корректное удаление наследников)
     virtual void log(const QString& message) = 0;
 };
 

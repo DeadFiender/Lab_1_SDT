@@ -6,8 +6,19 @@
 using namespace std;
 
 int main(int argc, char *argv[]){
+    QCoreApplication app(argc, argv);
 
+    ConsoleLogger logger;
+    FileManager& manager = FileManager::instance();
+    manager.setLogger(&logger);
 
+    manager.addFile("C:/Users/bibek/Desktop/Test/a.txt");
+    manager.addFile("C:/Users/bibek/Desktop/Test/b.txt");
+    manager.addFile("C:/Users/bibek/Desktop/Test/c.txt");
+
+    manager.startMonitoring();
+
+    return app.exec();
 }
 
 /*
