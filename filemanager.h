@@ -4,7 +4,7 @@
 #include <QObject>
 #include <QTimer>
 #include "ILogger.h"
-#include "filewatcher.h"
+#include "FileWatcher.h"
 
 class FileManager : public QObject {
     Q_OBJECT

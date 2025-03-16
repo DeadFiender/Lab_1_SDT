@@ -1,4 +1,4 @@
-#include "filewatcher.h"
+#include "FileWatcher.h"
 #include <QDebug>
 
 FileWatcher::FileWatcher(const QString& filePath, QObject* parent)

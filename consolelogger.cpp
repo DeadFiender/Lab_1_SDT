@@ -1,4 +1,4 @@
-#include "consolelogger.h"
+#include "ConsoleLogger.h"
 
 //Реализация метода log(), который выводит сообщение в консоль
 void ConsoleLogger::log(const QString& message) {

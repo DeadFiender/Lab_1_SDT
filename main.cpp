@@ -1,7 +1,6 @@
 #include <QCoreApplication>
-#include <QFileInfo>
-#include <iostream>
-#include "filemanager.h"
+#include "FileManager.h"
+#include "ConsoleLogger.h"
 
 using namespace std;
 

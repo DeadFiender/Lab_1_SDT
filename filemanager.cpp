@@ -1,4 +1,4 @@
-#include "filemanager.h"
+#include "FileManager.h"
 #include <QDebug>
 
 FileManager& FileManager::instance() {
@@ -40,3 +40,15 @@ void FileManager::checkFiles() {
     }
 }
 
+// Логирование событий
+void FileManager::onFileCreated(const QString& filePath, qint64 size) {
+    if (logger_) logger_->log(QString("Файл создан: %1 | Размер: %2").arg(filePath).arg(size));
+}
+
+void FileManager::onFileModified(const QString& filePath, qint64 newSize) {
+    if (logger_) logger_->log(QString("Файл изменен: %1 | Новый размер: %2").arg(filePath).arg(newSize));
+}
+
+void FileManager::onFileDeleted(const QString& filePath) {
+    if (logger_) logger_->log(QString("Файл удален: %1").arg(filePath));
+}
