@@ -14,6 +14,7 @@ int main(int argc, char *argv[]){
     manager.addFile("C:/Users/bibek/Desktop/Test/a.txt");// Указываем путь к файлу
     manager.addFile("C:/Users/bibek/Desktop/Test/b.txt");
     manager.addFile("C:/Users/bibek/Desktop/Test/c.txt");
+    manager.addFile("C:/Users/bibek/Desktop/Test/c.txt");
 
     manager.startMonitoring();// Запуск наблюдения за файлом
 
