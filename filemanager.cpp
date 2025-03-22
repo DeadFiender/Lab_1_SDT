@@ -20,8 +20,13 @@ void FileManager::setLogger(ILogger* logger) {
 
 // Добавление файла в список отслеживания
 void FileManager::addFile(const QString& filePath) {
-    // Проверка того, есть ли уже файл в списке наблюдения
 
+    // Проверка того, есть ли уже файл в списке наблюдения
+    for (auto* watcher : watchers_) {
+        if (watcher->filePath() == filePath) {
+            return;
+        }
+    }
 
     auto* watcher = new FileWatcher(filePath, this);
     connect(watcher, &FileWatcher::fileCreated, this, &FileManager::onFileCreated);

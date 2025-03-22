@@ -11,6 +11,8 @@ public:
     explicit FileWatcher(const QString& filePath, QObject* perent = nullptr);
 
     void checkFile();// Проверка состояния файла
+    QString filePath() const { return filePath_; } // Геттер пути к файлу
+
 signals:
     void fileCreated(const QString& filePath, qint64 size);
     void fileModified(const QString& filePath, qint64 newsize);
