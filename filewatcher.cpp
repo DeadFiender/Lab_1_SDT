@@ -13,11 +13,11 @@ void FileWatcher::checkFile() {
     qint64 size = exists ? fileInfo.size() : 0;
 
     if (exists && !lastExists_) {
-        emit fileCreated(filePath_, size);
+        emit fileCreated(filePath_, size);//генерируем сигнал файл создан
     } else if (exists && lastExists_ && size != lastSize_) {
-        emit fileModified(filePath_, size);
+        emit fileModified(filePath_, size);//генерируем сигнал файл изменен
     } else if (!exists && lastExists_) {
-        emit fileDeleted(filePath_);
+        emit fileDeleted(filePath_);//генерируем сигнал файл удален
     }
 
     lastExists_ = exists;
