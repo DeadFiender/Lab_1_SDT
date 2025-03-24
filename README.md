@@ -79,7 +79,7 @@
    * FileManager не является логгером, а лишь использует его.
    * Это позволяет передавать любую реализацию ILogger в FileManager.
 3. FileManager ⬌ (Композиция) ⬌ FileWatcher.
-   * Но фактически в коде это больше похоже на "контролируемую агрегацию", так как мы используем указатели и не вызываем delete вручную.
+   * FileManager владеет FileWatcher и отвечает за удаление данных у наблюдателя.
 4. FileWatcher ⬌ (Генерация сигналов) ⬌ FileManager.
    * FileWatcher отправляет сигналы fileCreated(), fileModified(), fileDeleted().
    * FileManager подписывается на эти сигналы и реагирует логированием через ILogger.
