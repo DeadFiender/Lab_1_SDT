@@ -22,8 +22,8 @@ void FileManager::setLogger(ILogger* logger) {
 void FileManager::addFile(const QString& filePath) {
 
     // Проверка того, есть ли уже файл в списке наблюдения
-    for (auto* watcher : watchers_) {
-        if (watcher->filePath() == filePath) {
+    for (auto* watcher : watchers_) {//wathcer_ QList указателей на FileWatcher/ watcher принимает указатель на один из элементов watchers_
+        if (watcher->filePath() == filePath) {//вызов метода filePath(), который должен возвращать путь к файлу, за которым следит данный FileWatcher.
             return;
         }
     }

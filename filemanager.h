@@ -23,7 +23,7 @@ private slots:
     void checkFiles();// Проверка всех файлов
 
 private:
-    explicit FileManager(QObject* parent = nullptr);
+    explicit FileManager(QObject* parent = nullptr);//Запрещает неявное приведение типов.
     ILogger* logger_;// Указатель на логгер
     QTimer timer_;// Таймер для периодической проверки
     QList<FileWatcher*> watchers_;// Список наблюдателей за файлами
